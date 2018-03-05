@@ -7,7 +7,7 @@
           <span class="icon_common tishi_icon" style="position: relative;top: 6px;margin-right: 20px;"></span>
           <span class="icon_common row_icon" style="margin-right: 20px;"></span>
           <span class="userHeadImg"></span>
-          <span class="userName text_ellipsis">{{userName}}</span>
+          <span class="userName text_ellipsis" :title="userName">{{userName}}</span>
           <span class="headRightIcon"></span>
           <div class="headUserLayer" style="background-color: #333547;top: 60px;" v-if="menu_show">
             <!--<p ui-sref="message_list">消息</p>-->
@@ -102,7 +102,15 @@ export default{
 
     },
     canpin_click: function () {
+      if (this.user_permiss == 1){
+        http.get_shool_list({accountId:localStorage.account_id, userId:localStorage.user_id}).then(res => {
+          localStorage.orgName = res[0].orgName;
+          localStorage.orgId = res[0].orgId;
+          localStorage.user_type = 'sps_acdemic';
 
+          this.$router.push('productDefinitionList')
+        });
+      }
     },
     kefu_click: function () {
 

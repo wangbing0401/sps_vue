@@ -40,7 +40,15 @@ export default{
     }
   },
   created(){
-
+    localStorage.removeItem('user_token');
+    localStorage.removeItem('user_name');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('customerId');
+    localStorage.removeItem('orgName');
+    localStorage.removeItem('orgId');
+    localStorage.removeItem('account_id');
+    localStorage.removeItem('user_type');
+    localStorage.removeItem('user_permiss');
   }
 }
 </script>

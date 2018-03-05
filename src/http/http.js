@@ -33,7 +33,9 @@ instance.interceptors.response.use((response) => {
 
 const http = {
   get_user_permiss:(data) => instance.get('/api/v1/user/me', {params:data}),
-  login:(data) => instance.post('/api/v1/login', data)
+  login:(data) => instance.post('/api/v1/login', data),
+  get_shool_list:(data) => instance.get('/api/v1/school/userManageSchool', {params:data}),
+  get_courseTemplate_list:(data) => instance.get('/api/v1/product/getProductBaseList', {params:data})
 }
 
 export default http

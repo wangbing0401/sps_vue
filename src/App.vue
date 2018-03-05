@@ -1,5 +1,55 @@
 <template>
-  <div>
+  <div id="app_main">
+    <div v-show="router_name!='login'&&router_name!='system_main'">
+      <div class="ambow_head">
+        <div class="ambow_head_main">
+          <div class="ambow_head_left" v-show="nav_url.length!=0">
+            <div class="logo_name">设置公司名称</div>
+          </div>
+          <div class="ambow_head_left" style="margin-left: 50px;" v-show="nav_url.length==0&&router_name!='crm_view_course_list'">
+            <span class="headBackIcon" @click="goBack()"></span>
+          </div>
+          <div v-if="router_name!='crm_view_course_list'&&router_name!='crm_view_course_info'" class="ambow_head_right" @mouseenter="menu_show=true" @mouseleave="menu_show=false">
+            <span class="userHeadImg icon_common defalt_head_img"></span>
+            <span class="userName text_ellipsis" :title="userName">{{userName}}</span>
+            <span class="headRightIcon"></span>
+            <div class="headUserLayer" v-if="menu_show">
+              <p>消息</p>
+              <p>密码设置</p>
+              <p>退出</p>
+            </div>
+          </div>
+          <router-link v-if="router_name!='crm_view_course_list'&&router_name!='crm_view_course_info'" class="icon_common home_icon" :to="{path:'/system_main'}"></router-link>
+        </div>
+      </div>
+      <div class="nav_url" v-if="nav_url.length!=0">
+        <div class="ambow_head_left" v-show="nav_url.length!==0">
+          <div class="schoolListBox" @mouseleave="schoolListIsShow=false">
+            <div class="searchIcon" @click="schoolListIsShow=true"></div>
+            <div class="schoolName">
+              <span class="left_bg"></span>
+              {{orgName}}
+            </div>
+            <ul class="schoolList" v-show="schoolListIsShow">
+              <li class="schoolListItem" v-for="l in schoolList" @click="selectSchool(l)">{{l.orgName}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav_list">
+          <div class="nav_item" v-for="(l, index) in nav_url" @mouseover="navChildShow=true" @mouseleave="navChildShow=false" :style="index==(nav_url.length-1)?{marginRight:0}:{}">
+            <router-link class="nav_content" :to="{path:l.url?l.url:'productManageIndex.productDefinitionList'}" :style="nav_bottom_fun(l)">{{l.name}}</router-link>
+            <span class="nav_item_triangle" v-if="l.child.length!==0" v-show="navChildShow"></span>
+            <div class="nav_item_child" v-if="l.child.length!==0" v-show="navChildShow">
+              <router-link class="nav_item_child_line" v-for="r in l.child" :to="{path:r.url?r.url:'productManageIndex.productDefinitionList'}">{{r.name}}</router-link>
+            </div>
+          </div>
+          <div class="crm_view_course" v-if="router_name=='personCustormList'" @click="crm_view_course_list()">
+            <i class="icon_common"></i>
+            查看课程
+          </div>
+        </div>
+      </div>
+    </div>
     <alert :show="AlertShow"></alert>
     <router-view/>
   </div>
@@ -8,22 +58,70 @@
 <script>
 import { mapState } from 'vuex'
 import Alert from './components/myself_alert/index'
+import handle_fun from './handle_fun/index'
 export default {
   components:{
     Alert
   },
+  data(){
+    return{
+      menu_show:false,
+      userName:null,
+      schoolListIsShow:false,
+      orgName:null
+    }
+  },
+  methods:{
+    goBack: function () {
+      history.back()
+    },
+    selectSchool: function (l) {
+      localStorage.orgName=l.orgName;
+      localStorage.orgId=l.orgId;
+      this.orgName=l.orgName;
+      this.schoolListIsShow=false;
+    },
+    nav_bottom_fun: function (l) {
+      let split_url = l.url.split('.');
+      if (this.router_name.indexOf(split_url[0]) != -1){
+        return {borderBottom:'#4679c7 solid 4px',color:'#4679c7'};
+      }else if (handle_fun.panduan_url(l)){
+        return {borderBottom:'#4679c7 solid 4px',color:'#4679c7'};
+      }else{
+        return {};
+      }
+    }
+  },
   computed:{
     ...mapState({
-      AlertShow:state => state.app_all.alert_show
-    })
+      AlertShow:state => state.app_all.alert_show,
+      router_name:state => state.app_all.current_router,
+      nav_url:state => state.app_all.nav_url,
+      schoolList:state => state.app_all.school_list
+    }),
+
+  },
+  created(){
+    this.userName = localStorage.user_name
+    this.orgName = localStorage.orgName
   }
 }
 </script>
 
 <style lang="scss">
+#app_main{
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  min-width: 1200px;
+  background: #f6f7fb;
+}
 *{
   box-sizing: border-box;
   font-size: inherit;
+  list-style: none;
 }
 .text_ellipsis{
   overflow: hidden;
@@ -47,6 +145,10 @@ input {
 }
 input:focus {
   outline: none;
+}
+a{
+  text-decoration: none;
+  color: $default_font_color;
 }
 .ambow_head{
   position: relative;
@@ -72,54 +174,55 @@ input:focus {
   div{
     float: left;
     color: #fff;
-    .schoolListBox{
+  }
+  .schoolListBox{
+    position: relative;
+    height: 100%;
+    width: 184px;
+    margin: 0px 18px;
+    .schoolName{
       position: relative;
-      height: 100%;
+      display: block;
       width: 184px;
-      margin: 0px 18px;
-      .schoolName{
-        position: relative;
-        display: block;
-        width: 184px;
-        height: 27px;
-        line-height: 27px;
-        font-size: 14px;color: #393d46;
-        margin-top: 15px; padding-left: 45px;
-        background: #fff;
-        border-radius: 50px;
-        text-indent: 5px;
-        background-color: #f5f5f5;
-        .left_bg{
-          position: absolute;
-          display: inline-block;
-          width: 32px; height: 26px;
-          left: 0;
-          border-radius: 13px 0 0 13px;
-          background-color: #ebebeb;
-        }
-      }
-      .searchIcon{
+      height: 27px;
+      line-height: 27px;
+      font-size: 14px;color: #393d46;
+      margin-top: 15px; padding-left: 45px;
+      background: #fff;
+      border-radius: 50px;
+      text-indent: 5px;
+      background-color: #f5f5f5;
+      .left_bg{
         position: absolute;
-        width: 18px;
-        height:21px ;
-        top: 18px; left: 6px;
-        background-image: url("./assets/imgs/icon2.png");
-        background-position: -176px -8px;
-        cursor: pointer;
-        z-index:10;
+        display: inline-block;
+        width: 32px; height: 26px;
+        left: 0;
+        border-radius: 13px 0 0 13px;
+        background-color: #ebebeb;
       }
     }
+    .searchIcon{
+      position: absolute;
+      width: 18px;
+      height:21px ;
+      top: 18px; left: 6px;
+      background-image: url("./assets/imgs/icon2.png");
+      background-position: -176px -8px;
+      cursor: pointer;
+      z-index:10;
+    }
+    .schoolList{
+      position: absolute;
+      top:47px;
+      margin: 0; padding: 0;
+      max-height: 250px;
+      width: 182px;
+      background: #fff;
+      box-shadow: 0px 0px 6px #ddd;
+      z-index: 98;
+    }
   }
-  ul.schoolList{
-    position: absolute;
-    top:47px;
-    max-height: 250px;
-    width: 182px;
-    background: #fff;
-    box-shadow: 0px 0px 6px #ddd;
-    z-index: 98;
-  }
-  span.headBackIcon{
+  .headBackIcon{
     display: block;
     width: 32px;
     height: 33px;
@@ -202,5 +305,103 @@ input:focus {
       background: #1eadf2;
     }
   }
+}
+/****主导航*****/
+.nav_url{
+  position: relative;
+  width: 100%;
+  min-width: 1200px;
+  height: 60px;
+  background: #fff;
+  border-bottom: #e1e1e1 solid 1px;
+  z-index: 19;
+}
+.nav_list{
+  position: relative;
+  width: 72%;
+  /*min-width: 1000px;*/
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 90px;
+}
+.nav_list>.crm_view_course{
+  position: absolute;
+  height: 100%; line-height: 60px;
+  right: 0;
+  font-size: 16px; color: #4679c7;
+  cursor: pointer;
+}
+.nav_list>.crm_view_course>i{
+  position: relative;
+  top: 3px;
+  width: 16px; height: 20px;
+  background-position: -346px -260px;
+}
+.nav_item{
+  position: relative;
+  float: left;
+  height: 61px;
+  /*margin-right: 60px;*/
+  margin-right: 35px;
+  min-width: 90px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 60px;
+  cursor: pointer;
+}
+.nav_item>.nav_content{
+  display: inline-block;
+  height: 100%; width: 100%;
+  &:hover{
+    border-bottom: #4679c7 solid 4px;
+    color: #4679c7;
+  }
+}
+.nav_item_triangle{
+  display: block;
+  position: absolute;
+  top:60px;
+  left: 50%;
+  margin-left: -3px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 5px solid #4679c7;
+  z-index: 100;
+}
+.nav_item_child{
+  position: absolute;
+  top:61px;
+  left: 0;
+  width: 100%;
+  padding:10px 0 5px;
+  background: #fff;
+  box-shadow: 0px 0px 4px #ccc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  z-index: 99;
+}
+.nav_item_child_line{
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 10px;
+  margin-bottom: 0;
+  color: #a3a3a3;
+  font-size: 14px;
+  text-align: center;
+}
+.nav_item_child_line:hover{
+  background: #4679c7;
+  color: #fff;
+}
+.bodyHasSplitted{
+  position: absolute;
+  top:0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  min-width: 1200px;
+  background: #f6f7fb;
 }
 </style>
