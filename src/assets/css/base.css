@@ -186,6 +186,7 @@
 .floatRight {
   float: right; }
 
+/*课程定义页面*/
 .pd_td_checkbox, .pd_td_edit {
   width: 4%;
   height: 100%; }
@@ -216,5 +217,41 @@
 
 .pd_td_status1 {
   width: 16%; }
+
+/*项目立项页面*/
+.proApprovalTdCheckbox {
+  width: 4%; }
+
+.proApprovalTdCode {
+  width: 17%; }
+
+.proApprovalTdName {
+  width: 16%; }
+
+.proApprovalTdDate {
+  width: 11%; }
+
+.proApprovalTdStarttime, .proApprovalTdEndtime {
+  width: 12%; }
+
+.proApprovalTdOperate {
+  width: 11%; }
+
+.proApprovalTdType {
+  width: 10%; }
+
+.proApprovalTdStatus {
+  width: 7%; }
+
+.proApprovalTdCheckbox > span {
+  margin-top: 12px; }
+
+.proApprovalTdOperate > .icon_common {
+  margin: 10px auto; }
+
+.look_advanceorder_icon {
+  width: 18px;
+  height: 20px;
+  background-position: -240px -146px; }
 
 /*# sourceMappingURL=base.css.map */

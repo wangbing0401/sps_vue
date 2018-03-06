@@ -122,6 +122,7 @@ export default {
   box-sizing: border-box;
   font-size: inherit;
   list-style: none;
+  margin: 0; padding: 0;
 }
 .text_ellipsis{
   overflow: hidden;
@@ -151,6 +152,24 @@ export default {
   background-position: -64px -112px;
   cursor: pointer;
 }
+.checkboxNormal{
+  display: block;
+  width: 15px;
+  height: 17px;
+  margin:0 auto;
+  background-image: url("./assets/imgs/icon2.png");
+  background-position: -272px -40px;
+  cursor: pointer;
+}
+.checkboxSelected{
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin:0 auto;
+  background-image: url("./assets/imgs/icon2.png");
+  background-position: -291px -40px;
+  cursor: pointer;
+}
 .grayDeleteIcon{
   display: block;
   width: 19px;
@@ -174,6 +193,12 @@ export default {
     background-position: -43px -9px;
     cursor: pointer;
   }
+}
+.arrangeIcon1{
+  float: left!important;
+  width: 22px; height: 22px;
+  background-image: url("./assets/imgs/icon2.png");
+  background-position: -16px -63px;
 }
 #app {
   font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -3,7 +3,7 @@
     <div class="centerBodyInputGroup">
       <span class="defaltBtn btnLength4 btnBgGreen floatRight" @click="addCourse()">新增课程</span>
       <span class="defaltBtn btnLength4 btnBorderGreen floatRight" style="margin-right: 10px" @click="toInitiateProject()">组合产品</span>
-      <search-input :input-width="search_input_width" :placeholder="self_placeholder" @clickSearch="search_event"></search-input>
+      <search-input :input-width="search_input_width" :search="searchKey" @update:search="val => searchKey = val"  :placeholder="self_placeholder" @clickSearch="search_event"></search-input>
     </div>
     <div class="centerBodyTab">
       <div class="centerBodyTabHead" style="padding-left: 0;">
@@ -81,12 +81,13 @@ export default{
       pageSize:15,
       selectedProductIds:[],
       search_input_width:400,
-      self_placeholder:'请输入课程名称'
+      self_placeholder:'请输入课程名称',
+      searchKey:null
     }
   },
   methods:{
     addCourse: function () {
-
+      console.log(this.searchKey)
     },
     toInitiateProject: function () {
 
@@ -96,7 +97,7 @@ export default{
         this.selectedProductIds.push(l.productBase.id);
       }else{
         this.selectedProductIds.splice(this.selectedProductIds.indexOf(l.productBase.id),1)
-      };
+      }
     },
     edit_line: function () {
 
@@ -105,7 +106,7 @@ export default{
 
     },
     search_event: function (searchKey) {
-      http.get_courseTemplate_list({type:1,searchKey:searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:1,isTemplate:false}).then(res => {
+      http.get_courseTemplate_list({type:1,searchKey:this.searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:1,isTemplate:false}).then(res => {
         this.courseTemplateList = res.results
       })
     }

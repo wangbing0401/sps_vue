@@ -10,7 +10,8 @@
 export default{
   props:{
     inputWidth:Number,
-    placeholder:String
+    placeholder:String,
+    search:String
   },
   data(){
     return{
@@ -23,6 +24,11 @@ export default{
     },
     clear_input_click: function () {
       this.searchKey = null
+    }
+  },
+  watch:{
+    searchKey:function (v1, v2) {
+      this.$emit('update:search', this.searchKey)
     }
   }
 }

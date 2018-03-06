@@ -34,6 +34,20 @@ const router = new Router({
       component: (resolve) => {
         require(['../pages/productManage/projectApprovalList.vue'], resolve)
       }
+    },
+    {
+      path: '/quotation',
+      name: 'quotation',
+      component: (resolve) => {
+        require(['../pages/productManage/quotation.vue'], resolve)
+      }
+    },
+    {
+      path: '/courseSchedulingList',
+      name: 'courseSchedulingList',
+      component: (resolve) => {
+        require(['../pages/productManage/courseSchedulingList.vue'], resolve)
+      }
     }
   ]
 })
