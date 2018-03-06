@@ -56,7 +56,7 @@
         padding: 0 0 0 25px;
         font-size: 14px;
         color: #767c8a; }
-        .centerBody .centerBodyTab .centerBodyTabBodyWrapper .centerBodyTabBody .centerBodyTabBodyLine:nth-of-type(2) {
+        .centerBody .centerBodyTab .centerBodyTabBodyWrapper .centerBodyTabBody .centerBodyTabBodyLine:nth-of-type(even) {
           background: #f8f8f8; }
         .centerBody .centerBodyTab .centerBodyTabBodyWrapper .centerBodyTabBody .centerBodyTabBodyLine div {
           float: left;

@@ -133,6 +133,48 @@ export default {
   background-image: url("./assets/imgs/icon2.png");
   cursor: pointer;
 }
+.pd_td_checkbox_icon{
+  display: block;
+  width: 16px;
+  height: 15px;
+  margin:12px auto;
+  background-image: url("./assets/imgs/icon.png");
+  background-position: -47px -113px;
+  cursor: pointer;
+}
+.pd_td_checkbox_checkicon{
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin:12px auto;
+  background-image: url("./assets/imgs/icon.png");
+  background-position: -64px -112px;
+  cursor: pointer;
+}
+.grayDeleteIcon{
+  display: block;
+  width: 19px;
+  height: 21px;
+  margin:0 auto;
+  background-image: url("./assets/imgs/icon2.png");
+  background-position: -125px -65px;
+  cursor: pointer;
+}
+.ct_td_operate{
+  width:8%;float: right!important;
+  span{
+    float: left;margin-top: 9px;
+  }
+  .editIcon{
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    background-image: url("./assets/imgs/icon2.png");
+    background-position: -43px -9px;
+    cursor: pointer;
+  }
+}
 #app {
   font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
