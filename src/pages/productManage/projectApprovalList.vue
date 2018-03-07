@@ -61,7 +61,7 @@ export default{
   },
   methods:{
     search_event: function (searchKey) {
-      http.project_approval_list({"orgId":localStorage.orgId,'pageNo':1,'pageSize':this.pageSize, searchKey:this.searchKey}).then(res => {
+      http.project_approval_list({"orgId":localStorage.orgId,'pageNo':1,'pageSize':this.pageSize, searchKey:searchKey}).then(res => {
         this.project_list = res.results
       })
     },

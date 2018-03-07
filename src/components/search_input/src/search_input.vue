@@ -24,10 +24,11 @@ export default{
     },
     clear_input_click: function () {
       this.searchKey = null
+      this.$emit('clickSearch', this.searchKey)
     }
   },
   watch:{
-    searchKey:function (v1, v2) {
+    searchKey:function (newV, oldV) {
       this.$emit('update:search', this.searchKey)
     }
   }

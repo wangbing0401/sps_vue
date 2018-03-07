@@ -76,6 +76,18 @@
     }
   }
 }
+.save_icon{
+  position: relative;
+  width: 23px; height: 18px;
+  background-position: -91px -117px;
+  margin-right: 20px; top: 4px;
+}
+.cancle_icon{
+  position: relative;
+  width: 18px; height: 22px;
+  background-position: -126px -115px;
+  top: 6px;
+}
 .total_money_line{
   position: absolute;
   width: 100%;
@@ -168,6 +180,7 @@
 .pd_td_date{width: 11%;}
 .pd_td_status{width:11%;}
 .pd_td_status1{width: 16%}
+/*课程定义页面*/
 
 /*项目立项页面*/
 .proApprovalTdCheckbox{width: 4%;}
@@ -187,6 +200,116 @@
   height: 20px;
   background-position: -240px -146px;
 }
+/*项目立项页面*/
+
+/*排期页面*/
+.course_sceduling_list_name{width: 15%;}
+.course_sceduling_list_major{width: 12%;}
+.course_sceduling_list_period{width: 7%;}
+.course_sceduling_list_unit{width: 9%;}
+.course_sceduling_list_tel{width: 13%;}
+.course_sceduling_list_starttime{width: 11%;}
+.course_sceduling_list_endtime{width: 11%}
+.course_sceduling_list_aptitude{width: 11%;}
+.course_sceduling_list_remark{width: 12%;}
+.course_sceduling_list_operate{width: 4%;height: 100%;float: right!important;margin-right: 20px; padding: 0px!important;}
+/*排期页面*/
+
+/*right_main页面*/
+.body_right_main{
+  position: absolute;
+  top:70px;
+  bottom: 120px;
+  width: 100%;
+}
+.right_tab_head{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 43px;
+  padding-left: 100px;
+  line-height: 43px;
+  background: #f1f1f1;
+  font-size: 16px;
+}
+.right_tab_head>div{
+  float: left;
+  /*text-align: center;*/
+  text-align: left;
+  padding-left: 20px;
+  font-size:14px;
+  font-weight:bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.right_tab_body_wrapper{
+  position: absolute;
+  top:43px;
+  bottom:0;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+.right_tab_line{
+  position: relative;
+  color: #767c8a;
+  height: 38px;
+  width: 100%;
+  padding-left: 100px;
+}
+.right_tab_line>div{
+  float: left;
+  height:100%;
+  line-height:30px;
+  box-sizing:border-box;
+  text-align: left;
+  padding-left: 20px; padding-top: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.right_tab_line>.set_course_td_operate{
+  float: right;
+  margin-right: 20px;
+}
+.right_tab_line:nth-child(2n){background: #fff;}
+.right_tab_line:nth-child(2n){background: #f8f8f8;}
+.right_tab_line_input{
+  height: 80%;
+  width: 100%;
+  border: none;
+  color: #767c8a;
+  background: #eaf1fe;
+}
+.right_tab_line .defaltBtn{margin: 0;}
+.right_tab_line .btnBgGreen{margin-left:5%;margin-right: 10px;}
+.list_pagination{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+/*right_main页面*/
+
+/*****课程专业列表*****/
+.set_course_td_code,.set_course_td_name{width: 28%}
+.set_course_td_operate{
+  width: 20%;
+  padding: 0!important;
+  margin-right: 20px;
+  text-align: right!important;
+  float: right!important;
+}
+.set_course_td_operate span{float:right;margin-top: 7px;}
+.set_course_td_operate>.editIcon{
+  margin-left: 25%;
+  margin-right: 12px;
+}
+.set_course_td_operate .defaltBtn{float: right;}
+/*****课程专业列表*****/
 
 $main_background_color:red;
 $default_font_color:#393d46;

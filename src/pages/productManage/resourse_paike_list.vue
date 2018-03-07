@@ -27,7 +27,7 @@
             <div class="course_sceduling_list_aptitude">{{l.qualificationRequirement.name}}</div>
             <div class="course_sceduling_list_remark" :title="l.resourceRequirement.remarks">{{l.resourceRequirement.remarks}}</div>
             <div class="course_sceduling_list_operate">
-              <span class="icon_common arrangeIcon1" style="margin-left:10px;margin-top: 10px;" @click="toAddCourseSechduling(l)"></span>
+              <span class="icon_common arrangeIcon1" style="margin-top: 10px;margin-left: 10px;" @click="toAddCourseSechduling(l)"></span>
             </div>
           </div>
         </div>

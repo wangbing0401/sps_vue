@@ -37,7 +37,12 @@ const http = {
   get_shool_list:(data) => instance.get('/api/v1/school/userManageSchool', {params:data}),
   get_courseTemplate_list:(data) => instance.get('/api/v1/product/getProductBaseList', {params:data}),
   project_approval_list:(data) => instance.get('/api/v1/product/selectProjectApproval', {params:data}),
-  get_course_scheduling_list:(data) => instance.get('/api/v1/product/getProductBaseListByDateAndIsNotTemplate', {params:data})
+  get_course_scheduling_list:(data) => instance.get('/api/v1/product/getProductBaseListByDateAndIsNotTemplate', {params:data}),
+  find_course_type_list:(data) => instance.get('/api/v1/specialty/query', {params:data}),
+  modify_course_type:(data) => instance.patch('/api/v1/specialty/updateSpecialty', data),
+  delete_course_type:(data) => instance.delete('/api/v1/specialty/deleteById', {params:data}),
+  get_coursetype_code:(data) => instance.get('/api/v1/specialty/specialtyCode', {params:data}),
+  add_course_type:(data) => instance.post('/api/v1/specialty/addSpecialty', data)
 }
 
 export default http

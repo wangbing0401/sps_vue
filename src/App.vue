@@ -1,15 +1,15 @@
 <template>
   <div id="app_main">
-    <div v-show="router_name!='login'&&router_name!='system_main'">
+    <div v-show="router_name!='/login'&&router_name!='/system_main'">
       <div class="ambow_head">
         <div class="ambow_head_main">
           <div class="ambow_head_left" v-show="nav_url.length!=0">
             <div class="logo_name">设置公司名称</div>
           </div>
-          <div class="ambow_head_left" style="margin-left: 50px;" v-show="nav_url.length==0&&router_name!='crm_view_course_list'">
+          <div class="ambow_head_left" style="margin-left: 50px;" v-show="nav_url.length==0&&router_name!='/crm_view_course_list'">
             <span class="headBackIcon" @click="goBack()"></span>
           </div>
-          <div v-if="router_name!='crm_view_course_list'&&router_name!='crm_view_course_info'" class="ambow_head_right" @mouseenter="menu_show=true" @mouseleave="menu_show=false">
+          <div v-if="router_name!='/crm_view_course_list'&&router_name!='/crm_view_course_info'" class="ambow_head_right" @mouseenter="menu_show=true" @mouseleave="menu_show=false">
             <span class="userHeadImg icon_common defalt_head_img"></span>
             <span class="userName text_ellipsis" :title="userName">{{userName}}</span>
             <span class="headRightIcon"></span>
@@ -19,7 +19,7 @@
               <p>退出</p>
             </div>
           </div>
-          <router-link v-if="router_name!='crm_view_course_list'&&router_name!='crm_view_course_info'" class="icon_common home_icon" :to="{path:'/system_main'}"></router-link>
+          <router-link v-if="router_name!='/crm_view_course_list'&&router_name!='/crm_view_course_info'" class="icon_common home_icon" :to="{path:'/system_main'}"></router-link>
         </div>
       </div>
       <div class="nav_url" v-if="nav_url.length!=0">
@@ -43,7 +43,7 @@
               <router-link class="nav_item_child_line" v-for="r in l.child" :to="{path:r.url?r.url:'productManageIndex.productDefinitionList'}">{{r.name}}</router-link>
             </div>
           </div>
-          <div class="crm_view_course" v-if="router_name=='personCustormList'" @click="crm_view_course_list()">
+          <div class="crm_view_course" v-if="router_name=='/personCustormList'" @click="crm_view_course_list()">
             <i class="icon_common"></i>
             查看课程
           </div>
@@ -98,8 +98,7 @@ export default {
       router_name:state => state.app_all.current_router,
       nav_url:state => state.app_all.nav_url,
       schoolList:state => state.app_all.school_list
-    }),
-
+    })
   },
   created(){
     this.userName = localStorage.user_name
@@ -123,6 +122,7 @@ export default {
   font-size: inherit;
   list-style: none;
   margin: 0; padding: 0;
+  font-size: 14px;
 }
 .text_ellipsis{
   overflow: hidden;
@@ -184,15 +184,15 @@ export default {
   span{
     float: left;margin-top: 9px;
   }
-  .editIcon{
-    display: block;
-    width: 22px;
-    height: 22px;
-    margin-right: 12px;
-    background-image: url("./assets/imgs/icon2.png");
-    background-position: -43px -9px;
-    cursor: pointer;
-  }
+}
+.editIcon{
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+  background-image: url("./assets/imgs/icon2.png");
+  background-position: -43px -9px;
+  cursor: pointer;
 }
 .arrangeIcon1{
   float: left!important;
@@ -412,13 +412,13 @@ a{
   margin-right: 35px;
   min-width: 90px;
   text-align: center;
-  font-size: 16px;
   line-height: 60px;
   cursor: pointer;
 }
 .nav_item>.nav_content{
   display: inline-block;
   height: 100%; width: 100%;
+  font-size: 16px;
   &:hover{
     border-bottom: #4679c7 solid 4px;
     color: #4679c7;

@@ -49,6 +49,15 @@ const handle_fun = {
       }
     }
     return fmt
+  },
+  number_fun: function (data, len) {
+    let data_len = (data+'').length
+    let num_0 = len - data_len
+    let string_0 = ''
+    for (let i = 0; i < num_0; i++){
+      string_0 += '0'
+    }
+    return string_0+data
   }
 }
 
