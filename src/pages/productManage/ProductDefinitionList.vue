@@ -61,7 +61,6 @@
               <span class="grayDeleteIcon" @click="delete_line(l)"></span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
