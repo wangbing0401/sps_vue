@@ -1,4 +1,15 @@
 @charset "UTF-8";
+.add_wrap {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  min-width: 1200px;
+  height: calc(100% - 40px);
+  height: -webkit-calc(100% - 40px);
+  height: -moz-calc(100% - 40px);
+  overflow: hidden;
+  background: none; }
+
 /*******没有左导航的列表页*******/
 .centerBody {
   position: absolute;

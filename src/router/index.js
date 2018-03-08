@@ -70,6 +70,13 @@ const router = new Router({
           }
         }
       ]
+    },
+    {
+      path: '/password_change',
+      name: 'password_change',
+      component: (resolve) => {
+        require(['../pages/password_change.vue'], resolve)
+      }
     }
   ]
 })
@@ -86,32 +93,32 @@ router.beforeEach((to, from, next) => {
         })
       }
       const nav_url1=[
-        {name:'课程定义',url:'productDefinitionList',child:[]},
-        {name:'产品定义',url:'projectApprovalList',child:[]},
+        {name:'课程定义',url:'/productDefinitionList',child:[]},
+        {name:'产品定义',url:'/projectApprovalList',child:[]},
         // {name:'排期',url:'studentApplyList',child:[{name:'学生报名表管理',url:'studentApplyList'},{name:'收款确认单管理',url:'receiptAcknowledgeList'},{name:'退费管理',url:'refundList'}]},
-        {name:'排期',url:'courseSchedulingList',child:[]},
+        {name:'排期',url:'/courseSchedulingList',child:[]},
         // {name:'资源信息管理',url:'teacherInfoList',child:[{name:'教师信息管理',url:'teacherInfoList'},{name:'学生信息管理', url:'student_info_manage'},{name:'教室信息管理',url:'classroomInfoList'},{name:'客户信息管理',url:'customerInfoList'}]},
-        {name:'资源排期',url:'resourse_paike_list',child:[]},
-        {name:'系统管理',url:'systemManageIndex/setCourseInfo',child:[]}
+        {name:'资源排期',url:'/resourse_paike_list',child:[]},
+        {name:'系统管理',url:'/systemManageIndex/setCourseInfo',child:[]}
       ]
       const nav_url2=[
-        {name:'个人客户',url:'personCustormList',child:[]},
-        {name:'企业客户',url:'companyCustormList',child:[]},
-        {name:'客户服务管理',url:'customerManageList',child:[]},
-        {name:'报表', url:'money_collection_books', child:[{name:'现金收款表', url:'money_collection_books', child:[]}, {name:'收入明细表', url:'income_info_table', child:[]}, {name:'收入汇总表', url:'income_summary_table', child:[]}]}
+        {name:'个人客户',url:'/personCustormList',child:[]},
+        {name:'企业客户',url:'/companyCustormList',child:[]},
+        {name:'客户服务管理',url:'/customerManageList',child:[]},
+        {name:'报表', url:'/money_collection_books', child:[{name:'现金收款表', url:'/money_collection_books', child:[]}, {name:'收入明细表', url:'/income_info_table', child:[]}, {name:'收入汇总表', url:'/income_summary_table', child:[]}]}
       ]
       const nav_url3 = [
-        {name:'教师资源', url:'teacherInfoList', child:[]},
-        {name:'教学场地', url:'classroomInfoList', child:[]},
-        {name:'教学资源', url:'setTeachingMaterialsInfo', child:[]},
-        {name:'教师资质等级', url:'setAptitudeRankInfo', child:[]},
-        {name:'系统设置', url:'members_type_list', child:[{name:'会籍', url:'members_type_list', child:[]}, {name:'企业性质', url:'company_nature_list', child:[]}, {name:'所属行业', url:'industry_list', child:[]}]},
+        {name:'教师资源', url:'/teacherInfoList', child:[]},
+        {name:'教学场地', url:'/classroomInfoList', child:[]},
+        {name:'教学资源', url:'/setTeachingMaterialsInfo', child:[]},
+        {name:'教师资质等级', url:'/setAptitudeRankInfo', child:[]},
+        {name:'系统设置', url:'/members_type_list', child:[{name:'会籍', url:'/members_type_list', child:[]}, {name:'企业性质', url:'/company_nature_list', child:[]}, {name:'所属行业', url:'/industry_list', child:[]}]},
       ]
       const nav_url5=[
-        {name:'课程管理',url:'courseManageList',child:[]},
-        {name:'学生管理',url:'studentManageList',child:[]},
-        {name:'成绩管理',url:'achievementManageList',child:[]},
-        {name:'个人信息维护',url:'teacherInfoDetail',child:[]},
+        {name:'课程管理',url:'/courseManageList',child:[]},
+        {name:'学生管理',url:'/studentManageList',child:[]},
+        {name:'成绩管理',url:'/achievementManageList',child:[]},
+        {name:'个人信息维护',url:'/teacherInfoDetail',child:[]},
       ]
       switch (to.path){
         case '/productManageIndex.courseTemplateList':
