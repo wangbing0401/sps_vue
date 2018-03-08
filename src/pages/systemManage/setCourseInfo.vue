@@ -146,7 +146,14 @@ export default{
   },
   created(){
     http.find_course_type_list({orgId:localStorage.orgId, appCode:app_code, customerId:localStorage.customerId, pageSize:this.pageSize, pageNum:1, searchKey:this.searchKey}).then(res => {
-      this.course_type_list = res.results;
+      this.course_type_list = res.results
+    })
+  },
+  mounted(){
+    const ps = new perfectScrollbar('.right_tab_body_wrapper', {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
     })
   }
 }

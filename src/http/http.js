@@ -42,7 +42,8 @@ const http = {
   modify_course_type:(data) => instance.patch('/api/v1/specialty/updateSpecialty', data),
   delete_course_type:(data) => instance.delete('/api/v1/specialty/deleteById', {params:data}),
   get_coursetype_code:(data) => instance.get('/api/v1/specialty/specialtyCode', {params:data}),
-  add_course_type:(data) => instance.post('/api/v1/specialty/addSpecialty', data)
+  add_course_type:(data) => instance.post('/api/v1/specialty/addSpecialty', data),
+  change_password:(data) => instance.put('/api/v1/changepw', data)
 }
 
 export default http

@@ -97,6 +97,13 @@ export default{
     http.project_approval_list({"orgId":localStorage.orgId,'pageNo':1,'pageSize':this.pageSize, searchKey:this.searchKey}).then(res => {
       this.project_list = res.results
     })
+  },
+  mounted(){
+    const ps = new perfectScrollbar('.centerBodyTabBodyWrapper', {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
+    })
   }
 }
 </script>

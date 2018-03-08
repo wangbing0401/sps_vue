@@ -55,13 +55,20 @@ export default{
   methods:{
     search_event: function (searchKey) {
       http.get_course_scheduling_list({orgId:localStorage.orgId,searchKey:searchKey,pageNum:1,pageSize:this.pageSize}).then(res => {
-        this.courseSchedulingList=res.results;
+        this.courseSchedulingList=res.results
       })
     }
   },
   created(){
     http.get_course_scheduling_list({orgId:localStorage.orgId,searchKey:this.searchKey,pageNum:1,pageSize:this.pageSize}).then(res => {
-      this.courseSchedulingList=res.results;
+      this.courseSchedulingList=res.results
+    })
+  },
+  mounted(){
+    const ps = new perfectScrollbar('.centerBodyTabBodyWrapper', {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
     })
   }
 }

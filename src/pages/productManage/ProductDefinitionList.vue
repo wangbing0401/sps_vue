@@ -115,6 +115,13 @@ export default{
     http.get_courseTemplate_list({type:1,searchKey:this.searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:1,isTemplate:false}).then(res => {
       this.courseTemplateList = res.results
     })
+  },
+  mounted(){
+    const ps = new perfectScrollbar('.centerBodyTabBodyWrapper', {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
+    })
   }
 }
 </script>

@@ -58,6 +58,16 @@ export default{
     ...mapState({
       router_name:state => state.app_all.current_router
     }),
+  },
+  created(){
+
+  },
+  mounted(){
+    const ps = new perfectScrollbar('.body_left_nav', {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
+    })
   }
 }
 </script>

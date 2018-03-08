@@ -15,7 +15,7 @@
             <span class="headRightIcon"></span>
             <div class="headUserLayer" v-if="menu_show">
               <p>消息</p>
-              <p>密码设置</p>
+              <router-link :to="{path:'/password_change'}"><p>密码设置</p></router-link>
               <p>退出</p>
             </div>
           </div>
@@ -37,10 +37,10 @@
         </div>
         <div class="nav_list">
           <div class="nav_item" v-for="(l, index) in nav_url" @mouseover="navChildShow=true" @mouseleave="navChildShow=false" :style="index==(nav_url.length-1)?{marginRight:0}:{}">
-            <router-link class="nav_content" :to="{path:l.url?l.url:'productManageIndex.productDefinitionList'}" :style="nav_bottom_fun(l)">{{l.name}}</router-link>
+            <router-link class="nav_content" :to="{path:l.url?l.url:'/productDefinitionList'}" :style="nav_bottom_fun(l)">{{l.name}}</router-link>
             <span class="nav_item_triangle" v-if="l.child.length!==0" v-show="navChildShow"></span>
             <div class="nav_item_child" v-if="l.child.length!==0" v-show="navChildShow">
-              <router-link class="nav_item_child_line" v-for="r in l.child" :to="{path:r.url?r.url:'productManageIndex.productDefinitionList'}">{{r.name}}</router-link>
+              <router-link class="nav_item_child_line" v-for="r in l.child" :to="{path:r.url?r.url:'/productDefinitionList'}">{{r.name}}</router-link>
             </div>
           </div>
           <div class="crm_view_course" v-if="router_name=='/personCustormList'" @click="crm_view_course_list()">

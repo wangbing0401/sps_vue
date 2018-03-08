@@ -58,7 +58,6 @@
     .centerBodyTabBodyWrapper{
       position: absolute;
       top:43px;
-      /*height: 100%;*/
       bottom: 90px;
       width: 100%;
       overflow: hidden;
@@ -322,6 +321,136 @@
 }
 .set_course_td_operate .defaltBtn{float: right;}
 /*****课程专业列表*****/
+
+
+/*滚动条样式*/
+.ps-container .ps__rail-x {
+  position: absolute; /* please don't change 'position' */
+  bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x-rail */
+  height: 8px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  filter: alpha(opacity = 0);
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -moz-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+}
+
+.ps-container:hover .ps__rail-x,
+.ps-container.hover .ps__rail-x {
+  opacity: 0.6;
+  filter: alpha(opacity = 60);
+}
+
+.ps-container .ps__rail-x:hover,
+.ps-container .ps__rail-x.hover {
+  background-color: #aaa;
+  opacity: 0.9;
+  filter: alpha(opacity = 90);
+}
+
+.ps-container .ps__rail-x.in-scrolling {
+  background-color: #aaa;
+  opacity: 0.9;
+  filter: alpha(opacity = 90);
+}
+
+.ps-container .ps__rail-y {
+  position: absolute; /* please don't change 'position' */
+  right: 3px; /* there must be 'right' for ps-scrollbar-y-rail */
+  width: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  opacity: 0.8;
+  filter: alpha(opacity = 80);
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -moz-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+}
+
+.ps-container:hover .ps__rail-y,
+.ps-container.hover .ps__rail-y {
+  opacity: 0.8;
+  filter: alpha(opacity = 80);
+}
+
+.ps-container .ps__rail-y:hover,
+.ps-container .ps__rail-y.hover {
+  background-color: #ddd;
+  opacity: 1;
+  filter: alpha(opacity = 100);
+}
+
+.ps-container .ps__rail-y.in-scrolling {
+  background-color: #ddd;
+  opacity: 1;
+  filter: alpha(opacity = 100);
+}
+
+.ps-container .ps__thumb-x {
+  position: absolute; /* please don't change 'position' */
+  bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */
+  height: 8px;
+  background-color: #acc5ef;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -o-transition: background-color .2s linear;
+  -webkit-transition: background-color.2s linear;
+  -moz-transition: background-color .2s linear;
+  transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps__thumb-x {
+  font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+}
+
+.ps-container .ps__rail-x:hover .ps__thumb-x,
+.ps-container .ps__rail-x.hover .ps__thumb-x {
+  background-color: #acc5ef;
+}
+
+.ps-container .ps__thumb-y {
+  position: absolute; /* please don't change 'position' */
+  right: 0; /* there must be 'right' for ps-scrollbar-y */
+  width: 5px;
+  background-color: #acc5ef;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -o-transition: background-color .2s linear;
+  -webkit-transition: background-color.2s linear;
+  -moz-transition: background-color .2s linear;
+  transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps__thumb-y {
+  font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+}
+
+.ps-container .ps__rail-y:hover .ps__thumb-y,
+.ps-container .ps__rail-y.hover .ps__thumb-y {
+  background-color: #acc5ef;
+}
+
+.ps-container.ie .ps__thumb-x,
+.ps-container.ie .ps__thumb-y {
+  visibility: hidden;
+}
+
+.ps-container.ie:hover .ps__thumb-x,
+.ps-container.ie:hover .ps__thumb-y,
+.ps-container.ie.hover .ps__thumb-x,
+.ps-container.ie.hover .ps__thumb-y {
+  visibility: visible;
+}
+
+/*滚动条样式*/
 
 $main_background_color:red;
 $default_font_color:#393d46;
