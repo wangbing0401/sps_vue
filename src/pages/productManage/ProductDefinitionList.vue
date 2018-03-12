@@ -64,15 +64,18 @@
         </div>
       </div>
     </div>
+    <paging :total-page="temp_data.numPages"></paging>
   </div>
 </template>
 
 <script>
 import http from '../../http/http'
 import SearchInput from '../../components/search_input/index'
+import paging from '../../components/paging/index'
 export default{
   components:{
-    SearchInput
+    SearchInput,
+    paging
   },
   data(){
     return{
@@ -81,7 +84,8 @@ export default{
       selectedProductIds:[],
       search_input_width:400,
       self_placeholder:'请输入课程名称',
-      searchKey:null
+      searchKey:null,
+      temp_data:{}
     }
   },
   methods:{
@@ -113,6 +117,7 @@ export default{
   created(){
     http.get_courseTemplate_list({type:1,searchKey:this.searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:1,isTemplate:false}).then(res => {
       this.courseTemplateList = res.results
+      this.$set(this.temp_data, 'numPages', res.pageNum)
     })
   },
   mounted(){
