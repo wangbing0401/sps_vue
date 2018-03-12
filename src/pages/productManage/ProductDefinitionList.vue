@@ -64,7 +64,6 @@
         </div>
       </div>
     </div>
-    <input-calendar :style-object="style_object" :calendar-value="calendar_value" @update:calendarValue="val => calendar_value = val"></input-calendar>
     <paging :total-page="temp_data.numPages" @getPages="get_list"></paging>
   </div>
 </template>
@@ -73,12 +72,10 @@
 import http from '../../http/http'
 import SearchInput from '../../components/search_input/index'
 import paging from '../../components/paging/index'
-import inputCalendar from '../../components/input_calendar/index'
 export default{
   components:{
     SearchInput,
-    paging,
-    inputCalendar
+    paging
   },
   data(){
     return{
@@ -88,14 +85,12 @@ export default{
       search_input_width:400,
       self_placeholder:'请输入课程名称',
       searchKey:null,
-      temp_data:{},
-      calendar_value:null,
-      style_object:{width:500+'px'}
+      temp_data:{}
     }
   },
   methods:{
     addCourse: function () {
-      console.log(this.calendar_value)
+      console.log(this.searchKey)
     },
     toInitiateProject: function () {
 
