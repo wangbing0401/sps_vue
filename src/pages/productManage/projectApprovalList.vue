@@ -33,20 +33,22 @@
               <span style="display: inline-block;" class="icon_common look_advanceorder_icon" @click.stop="quotation_go(l);"></span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
+    <paging :total-page="temp_data.numPages" @getPages="get_list"></paging>
   </div>
 </template>
 
 <script>
 import http from '../../http/http'
 import SearchInput from '../../components/search_input/index'
+import paging from '../../components/paging/index'
 import store from '../../vuex_store/store'
 export default{
   components:{
-    SearchInput
+    SearchInput,
+    paging
   },
   data(){
     return{
@@ -56,7 +58,8 @@ export default{
       search_input_width:400,
       self_placeholder:'请输入项目名称',
       searchKey:null,
-      can_edit_product:false
+      can_edit_product:false,
+      temp_data:{}
     }
   },
   methods:{
@@ -91,11 +94,17 @@ export default{
       }else{
         localStorage.productBaseId = null
       }
+    },
+    get_list: function (page) {
+      http.project_approval_list({"orgId":localStorage.orgId,'pageNo':page,'pageSize':this.pageSize, searchKey:this.searchKey}).then(res => {
+        this.project_list = res.results
+      })
     }
   },
   created(){
     http.project_approval_list({"orgId":localStorage.orgId,'pageNo':1,'pageSize':this.pageSize, searchKey:this.searchKey}).then(res => {
       this.project_list = res.results
+      this.$set(this.temp_data, 'numPages', res.pageNum)
     })
   },
   mounted(){

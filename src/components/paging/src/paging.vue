@@ -25,15 +25,18 @@ export default{
   methods:{
     page_click: function (index) {
       this.current_page = index
+      this.$emit('getPages', this.current_page)
     },
     pre_click: function () {
       if (this.current_page != 1){
         this.current_page--
+        this.$emit('getPages', this.current_page)
       }
     },
     next_click: function () {
       if (this.current_page != this.totalPage){
         this.current_page++
+        this.$emit('getPages', this.current_page)
       }
     }
   },

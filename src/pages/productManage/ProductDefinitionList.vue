@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <paging :total-page="temp_data.numPages"></paging>
+    <paging :total-page="temp_data.numPages" @getPages="get_list"></paging>
   </div>
 </template>
 
@@ -110,6 +110,11 @@ export default{
     },
     search_event: function (searchKey) {
       http.get_courseTemplate_list({type:1,searchKey:searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:1,isTemplate:false}).then(res => {
+        this.courseTemplateList = res.results
+      })
+    },
+    get_list: function (page) {
+      http.get_courseTemplate_list({type:1,searchKey:this.searchKey,orgId:localStorage.orgId,customerId:localStorage.customerId,pageSize:this.pageSize,pageNum:page,isTemplate:false}).then(res => {
         this.courseTemplateList = res.results
       })
     }

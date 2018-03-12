@@ -33,15 +33,18 @@
         </div>
       </div>
     </div>
+    <paging :total-page="temp_data.numPages" @getPages="get_list"></paging>
   </div>
 </template>
 
 <script>
 import http from '../../http/http'
 import SearchInput from '../../components/search_input/index'
+import paging from '../../components/paging/index'
 export default{
   components:{
-    SearchInput
+    SearchInput,
+    paging
   },
   data(){
     return{
@@ -49,7 +52,8 @@ export default{
       pageSize:20,
       search_input_width:400,
       self_placeholder:'请输入课程名称',
-      searchKey:null
+      searchKey:null,
+      temp_data:{}
     }
   },
   methods:{
@@ -57,11 +61,17 @@ export default{
       http.get_course_scheduling_list({orgId:localStorage.orgId,searchKey:searchKey,pageNum:1,pageSize:this.pageSize}).then(res => {
         this.courseSchedulingList=res.results
       })
+    },
+    get_list: function (page) {
+      http.get_course_scheduling_list({orgId:localStorage.orgId,searchKey:this.searchKey,pageNum:page,pageSize:this.pageSize}).then(res => {
+        this.courseSchedulingList=res.results
+      })
     }
   },
   created(){
     http.get_course_scheduling_list({orgId:localStorage.orgId,searchKey:this.searchKey,pageNum:1,pageSize:this.pageSize}).then(res => {
       this.courseSchedulingList=res.results
+      this.$set(this.temp_data, 'numPages', res.pageNum)
     })
   },
   mounted(){
