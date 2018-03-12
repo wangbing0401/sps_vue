@@ -100,7 +100,7 @@ export default {
       schoolList:state => state.app_all.school_list
     })
   },
-  created(){
+  mounted(){
     this.userName = localStorage.user_name
     this.orgName = localStorage.orgName
   }

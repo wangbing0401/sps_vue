@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import inputCalendar from '../../components/input_calendar/index'
+import inputCalendar from './index'
 export default{
   components:{
     inputCalendar
