@@ -57,32 +57,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .body_right{
-    position: absolute;
-    top:0; left: 0;
-    height: 100%;
-    width: 100%;
-    min-width: 1000px;
-    padding-top: 101px;
-    padding-left: 221px;
-    z-index: 10;
-    .body_right_content{
-      position: relative;
-      height: 100%;
-      width: 90%;
-      margin: 0 auto;
-      .body_right_top{
-        position: absolute;
-        top:30px;
-        height: 30px;
-        width: 100%;
-        span{
-          display: block;
-          float: right;
-          height: 30px;
-        }
-      }
-    }
-  }
+
 </style>
 

@@ -38,7 +38,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
   .alert_all{
     position: fixed;
     top: 0; left: 0;
