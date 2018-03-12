@@ -10,13 +10,14 @@
           <!--<p class="body_left_item" ui-sref="systemManageIndex.courseTemplateList" ng-style="router_name=='systemManageIndex.courseTemplateList'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">-->
           <!--<span>课程模板设置</span>-->
           <!--</p>-->
-          <p class="body_left_item" ui-sref="systemManageIndex.setCourseInfo"  :style="router_name=='/systemManageIndex/setCourseInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
+          <router-link tag="p" class="body_left_item" to="/systemManageIndex/setCourseInfo"  :style="router_name=='/systemManageIndex/setCourseInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
             <!--<span class="body_left_item_icon body_left_item_icon1"></span>-->
+            <!--<router-link to="/systemManageIndex/setCourseInfo"></router-link>-->
             <span>课程专业设置</span>
-          </p>
-          <p class="body_left_item" ui-sref="systemManageIndex.setProductTypeInfo" :style="router_name=='/systemManageIndex/setProductTypeInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
+          </router-link>
+          <router-link tag="p" class="body_left_item" to="/systemManageIndex/setProductTypeInfo" :style="router_name=='/systemManageIndex/setProductTypeInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
             <span>产品类型设置</span>
-          </p>
+          </router-link>
           <!--<p class="body_left_item" ui-sref="systemManageIndex.setAptitudeRankInfo" ng-style="router_name=='systemManageIndex.setAptitudeRankInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">-->
           <!--<span>资质等级设置</span>-->
           <!--</p>-->
@@ -29,15 +30,15 @@
           <!--<p class="body_left_item" ui-sref="systemManageIndex.setExpenseAccountInfo" ng-style="router_name=='systemManageIndex.setExpenseAccountInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">-->
           <!--<span>费用科目设置</span>-->
           <!--</p>-->
-          <p class="body_left_item" ui-sref="systemManageIndex.setTaxRateInfo" :style="router_name=='/systemManageIndex/setTaxRateInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
+          <router-link tag="p" class="body_left_item" to="/systemManageIndex/setTaxRateInfo" :style="router_name=='/systemManageIndex/setTaxRateInfo'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
             <span>税率、分摊费用比维护</span>
-          </p>
+          </router-link>
           <p class="body_left_item" ui-sref="systemManageIndex.personnelMaintain" :style="router_name=='/systemManageIndex/personnelMaintain'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
             <span>人员维护</span>
           </p>
-          <p class="body_left_item" ui-sref="systemManageIndex.subjectsRelation" :style="router_name=='/systemManageIndex/subjectsRelation'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
+          <router-link tag="p" class="body_left_item" to="/systemManageIndex/subjectsRelation" :style="router_name=='/systemManageIndex/subjectsRelation'?{borderLeft:'#4679c7 solid 3px',color:'#4679c7',background:'#f6f7fb'}:{}">
             <span>科目关系对照</span>
-          </p>
+          </router-link>
         </div>
       </div>
       <p class="platformName">教务平台</p>

@@ -68,6 +68,24 @@ const router = new Router({
           component: (resolve) => {
             require(['../pages/systemManage/setCourseInfo.vue'], resolve)
           }
+        },
+        {
+          path: 'setProductTypeInfo',
+          component: (resolve) => {
+            require(['../pages/systemManage/setProductTypeInfo.vue'], resolve)
+          }
+        },
+        {
+          path: 'setTaxRateInfo',
+          component: (resolve) => {
+            require(['../pages/systemManage/setTaxRateInfo.vue'], resolve)
+          }
+        },
+        {
+          path: 'subjectsRelation',
+          component: (resolve) => {
+            require(['../pages/systemManage/subjectsRelation.vue'], resolve)
+          }
         }
       ]
     },
@@ -77,7 +95,7 @@ const router = new Router({
       component: (resolve) => {
         require(['../pages/password_change.vue'], resolve)
       }
-    }
+    },
   ]
 })
 
