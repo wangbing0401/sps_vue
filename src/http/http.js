@@ -71,7 +71,11 @@ const http = {
   get_industry_list:(data) => instance.get('/api/v1/organization/listIndustry', {params:data}),
   add_industry_list:(data) => instance.post('/api/v1/organization/putIndustry', data),
   delete_industry_type:(data) => instance.get('/api/v1/organization/deleteIndustry', {params:data}),
-  get_industry_code:(data) => instance.get('/api/v1/organization/numberIndustry', {params:data})
+  get_industry_code:(data) => instance.get('/api/v1/organization/numberIndustry', {params:data}),
+  get_all_kemu_list:(data) => instance.get('/api/v1/accountingItem/listAll', {params:data}),
+  add_kemu_guanxi:(data) => instance.post('/api/v1/product/putSubjectRelationControl', data),
+  delete_kemu_guanxi_list:(data) => instance.get('/api/v1/product/deleteSubjectRelationControl', {params:data}),
+
 }
 
 export default http
