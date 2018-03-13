@@ -1,6 +1,7 @@
 /**
  * Created by WB on 2018/3/5.
  */
+import store from '../vuex_store/store'
 const handle_fun = {
   verification_user_equipment: function () {
     let u = navigator.userAgent;
@@ -17,11 +18,11 @@ const handle_fun = {
       webApp: u.indexOf('Safari') > -1 //是否web应该程序，没有头部与底部
     };
   }(),
-  panduan_url: function (l) {
+  panduan_url: function (l, router_name) {
     let has_child = false;
     let child_lenght = l.child.length;
     for (let i = 0; i < child_lenght; i++){
-      if (l.child[i].url == $rootScope.router_name){
+      if (l.child[i].url == router_name){
         has_child = true;
         break;
       }

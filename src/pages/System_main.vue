@@ -116,7 +116,15 @@ export default{
 
     },
     jiaoxue_resource_click: function () {
+      if (this.user_permiss == 1){
+        http.get_shool_list({accountId:localStorage.account_id, userId:localStorage.user_id}).then(res => {
+          localStorage.orgName = res[0].orgName;
+          localStorage.orgId = res[0].orgId;
+          localStorage.user_type = 'sps_acdemic';
 
+          this.$router.push('teacherInfoList')
+        });
+      }
     }
   },
   created(){

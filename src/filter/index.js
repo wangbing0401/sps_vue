@@ -44,3 +44,23 @@ Vue.filter('productStatus', function (text) {
   }
   return state;
 })
+Vue.filter('sex_filter', function (text) {
+  if(text == 1){
+    return '男';
+  }else if(text == 0){
+    return '女';
+  }
+})
+Vue.filter('id_name_filter', function (text, param) {
+  let state;
+  if (param){
+    let lenght = param.length;
+    for (let i = 0; i < lenght; i++){
+      if (text == param[i].id){
+        state = param[i].name;
+        break;
+      }
+    }
+  }
+  return state;
+})

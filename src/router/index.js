@@ -96,6 +96,34 @@ const router = new Router({
         require(['../pages/password_change.vue'], resolve)
       }
     },
+    {
+      path: '/teacherInfoList',
+      name: 'teacherInfoList',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/teacherInfoList.vue'], resolve)
+      }
+    },
+    {
+      path: '/classroomInfoList',
+      name: 'classroomInfoList',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/classroomInfoList.vue'], resolve)
+      }
+    },
+    {
+      path: '/setTeachingMaterialsInfo',
+      name: 'setTeachingMaterialsInfo',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/setTeachingMaterialsInfo.vue'], resolve)
+      }
+    },
+    {
+      path: '/setAptitudeRankInfo',
+      name: 'setAptitudeRankInfo',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/setAptitudeRankInfo.vue'], resolve)
+      }
+    }
   ]
 })
 

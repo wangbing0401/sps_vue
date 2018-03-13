@@ -36,10 +36,10 @@
           </div>
         </div>
         <div class="nav_list">
-          <div class="nav_item" v-for="(l, index) in nav_url" @mouseover="navChildShow=true" @mouseleave="navChildShow=false" :style="index==(nav_url.length-1)?{marginRight:0}:{}">
+          <div class="nav_item" v-for="(l, index) in nav_url" @mouseover="l.child.length!=0?navChildShow=true:''" @mouseleave="navChildShow=false" :style="index==(nav_url.length-1)?{marginRight:0}:{}">
             <router-link class="nav_content" :to="{path:l.url?l.url:'/productDefinitionList'}" :style="nav_bottom_fun(l)">{{l.name}}</router-link>
-            <span class="nav_item_triangle" v-if="l.child.length!==0" v-show="navChildShow"></span>
-            <div class="nav_item_child" v-if="l.child.length!==0" v-show="navChildShow">
+            <span class="nav_item_triangle" v-if="l.child.length!=0&&navChildShow"></span>
+            <div class="nav_item_child" v-if="l.child.length!=0&&navChildShow">
               <router-link class="nav_item_child_line" v-for="r in l.child" :to="{path:r.url?r.url:'/productDefinitionList'}">{{r.name}}</router-link>
             </div>
           </div>
@@ -68,7 +68,8 @@ export default {
       menu_show:false,
       userName:null,
       schoolListIsShow:false,
-      orgName:null
+      orgName:null,
+      navChildShow:false
     }
   },
   methods:{
@@ -85,7 +86,7 @@ export default {
       let split_url = l.url.split('.');
       if (this.router_name.indexOf(split_url[0]) != -1){
         return {borderBottom:'#4679c7 solid 4px',color:'#4679c7'};
-      }else if (handle_fun.panduan_url(l)){
+      }else if (handle_fun.panduan_url(l, this.router_name)){
         return {borderBottom:'#4679c7 solid 4px',color:'#4679c7'};
       }else{
         return {};
@@ -450,6 +451,7 @@ a{
   z-index: 99;
 }
 .nav_item_child_line{
+  display: block;
   height: 30px;
   line-height: 30px;
   padding: 0px 10px;

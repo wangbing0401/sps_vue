@@ -470,6 +470,27 @@
 }
 /*body-right样式*/
 
+/*教室列表*/
+.classroom_info_list_code{
+  width: 16%;
+}
+.classroom_info_list_name{
+  width: 14%
+}
+.classroom_info_list_prise{
+  width: 30%;
+}
+.classroom_info_list_level{
+  width: 10%;
+}
+.classroom_info_list_operate{
+  width: 15%;
+}
+.classroom_info_list_operate span{
+  margin-top: 10px;
+}
+/*教室列表*/
+
 $main_background_color:red;
 $default_font_color:#393d46;
 $input_background_color:#eaf1fe;
