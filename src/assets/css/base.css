@@ -574,5 +574,22 @@
   margin-top: 10px; }
 
 /*教室列表*/
+/*会籍*/
+.left_div {
+  float: left;
+  font-size: 16px;
+  color: #4679c7; }
+
+.left_div > i {
+  width: 14px;
+  height: 20px;
+  background-position: -218px -260px; }
+
+.left_div > .baobiao {
+  width: 15px;
+  height: 15px;
+  background-position: -369px -265px; }
+
+/*会籍*/
 
 /*# sourceMappingURL=base.css.map */

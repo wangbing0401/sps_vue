@@ -57,8 +57,21 @@ const http = {
   get_teacherMaterial_code:(data) => instance.get('/api/v1/teachResources/getCode', {params:data}),
   add_teacher_material:(data) => instance.post('/api/v1/teachResources/addSchoolResource', data),
   find_aptitude_rank:(data) => instance.get('/api/v1/qualificationLevel/getAll', {params:data}),
+  get_aptitude_code:(data) => instance.get('/api/v1/qualificationLevel/getCode', {params:data}),
   modify_aptitude_rank:(data) => instance.patch('/api/v1/qualificationLevel/update', data),
-  delete_aptitude_rank:(data) => instance.delete('/api/v1/qualificationLevel/deleteById', {params:data})
+  delete_aptitude_rank:(data) => instance.delete('/api/v1/qualificationLevel/deleteById', {params:data}),
+  get_receiptType_list:(data) => instance.get('/api/v1/applyInfo/getpaymentMethod', {params:data}),
+  add_members_type:(data) => instance.post('/api/v1/applyInfo/putpaymentMethod', data),
+  delete_members_type:(data) => instance.get('/api/v1/applyInfo/deletepaymentMethod', {params:data}),
+  get_members_code:(data) => instance.get('/api/v1/applyInfo/numberPaymentMethod', {params:data}),
+  get_EnterpriseNature_list:(data) => instance.get('/api/v1/organization/listEnterpriseNature', {params:data}),
+  delete_company_nature_type:(data) => instance.get('/api/v1/organization/deleteEnterpriseNature', {params:data}),
+  get_company_nature_code:(data) => instance.get('/api/v1/organization/numberEnterpriseNature', {params:data}),
+  add_company_nature_type:(data) => instance.post('/api/v1/organization/putEnterpriseNatures', data),
+  get_industry_list:(data) => instance.get('/api/v1/organization/listIndustry', {params:data}),
+  add_industry_list:(data) => instance.post('/api/v1/organization/putIndustry', data),
+  delete_industry_type:(data) => instance.get('/api/v1/organization/deleteIndustry', {params:data}),
+  get_industry_code:(data) => instance.get('/api/v1/organization/numberIndustry', {params:data})
 }
 
 export default http

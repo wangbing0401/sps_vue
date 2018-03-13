@@ -123,6 +123,27 @@ const router = new Router({
       component: (resolve) => {
         require(['../pages/resourceInfo/setAptitudeRankInfo.vue'], resolve)
       }
+    },
+    {
+      path: '/members_type_list',
+      name: 'members_type_list',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/members_type_list.vue'], resolve)
+      }
+    },
+    {
+      path: '/company_nature_list',
+      name: 'company_nature_list',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/company_nature_list.vue'], resolve)
+      }
+    },
+    {
+      path: '/industry_list',
+      name: 'industry_list',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/industry_list.vue'], resolve)
+      }
     }
   ]
 })

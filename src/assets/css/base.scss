@@ -491,6 +491,22 @@
 }
 /*教室列表*/
 
+
+/*会籍*/
+.left_div{
+  float: left;
+  font-size: 16px; color: #4679c7;
+}
+.left_div>i{
+  width: 14px; height: 20px;
+  background-position: -218px -260px;
+}
+.left_div>.baobiao{
+  width: 15px; height: 15px;
+  background-position: -369px -265px;
+}
+/*会籍*/
+
 $main_background_color:red;
 $default_font_color:#393d46;
 $input_background_color:#eaf1fe;

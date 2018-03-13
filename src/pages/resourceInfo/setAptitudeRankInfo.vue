@@ -115,7 +115,7 @@ export default{
       })
     },
     addCourse: function () {
-      http.get_teacherMaterial_code({orgId:localStorage.orgId}).then(res => {
+      http.get_aptitude_code({orgId:localStorage.orgId, customerId:localStorage.customerId}).then(res => {
         this.$set(this.temp_data, 'course_code', handle_fun.number_fun(res.result, 5))
         this.$set(this.temp_data, 'fieldArray', [
           {'fieldName':'编码','fieldVal':this.temp_data.course_code, readonly:true},
@@ -137,7 +137,7 @@ export default{
       }
       http.add_teacher_material(params).then(res => {
         store.dispatch('alert_handle_show', '创建成功')
-        this.teacher_material_list.push(res);
+        this.aptitude_rank_list.push(res);
         this.fieldArray=[
           {'fieldName':'编码','fieldVal':''},
           {'fieldName':'教学资源','fieldVal':''},

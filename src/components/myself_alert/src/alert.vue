@@ -36,7 +36,7 @@
     background-color: black;
     opacity: .8;
     border-radius: 5px;
-    z-index: 1000;
+    z-index: 10001;
   }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
