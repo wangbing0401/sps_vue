@@ -104,7 +104,16 @@
         self_placeholder:'费用科目、预算科目',
         searchKey:null,
         add_line_show:false,
-        add_kemu_params:{},
+        add_kemu_params:{
+          budgetarySubjectsId: null,
+          budgetarySubjectsName: null,
+          budgetaryTypeId: null,
+          budgetaryTypeName: null,
+          name: null,
+          orgId: localStorage.orgId,
+          recordsSubjectsId: null,
+          recordsSubjectsNema: null
+        },
         main_count:0,
         all_kemu_list:[],
         all_kemu_alert_show:false,
