@@ -257,7 +257,7 @@
           }
           http.add_kemu_guanxi(this.add_kemu_params).then(res=>{
             store.dispatch('alert_handle_show','添加成功');
-            this.kemu_guanxi_list.push(result);
+            this.kemu_guanxi_list.push(res);
             this.add_line_show = false;
             this.init_params();
             this.main_count = 0;
