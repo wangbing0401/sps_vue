@@ -104,6 +104,13 @@ const router = new Router({
       }
     },
     {
+      path: '/addTeacherInfo',
+      name: 'addTeacherInfo',
+      component: (resolve) => {
+        require(['../pages/resourceInfo/addTeacherInfo.vue'], resolve)
+      }
+    },
+    {
       path: '/classroomInfoList',
       name: 'classroomInfoList',
       component: (resolve) => {

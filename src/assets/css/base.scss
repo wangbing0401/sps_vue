@@ -10,6 +10,56 @@
   overflow: hidden;
   background: none;
 }
+.add_wrap_content{
+  width: 1000px;
+  height: auto;
+  margin: 0 auto 100px;
+}
+.add_content_title{
+  height: 30px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #4778c7;
+}
+.add_content_title>span{display: block;float: left;margin-right: 10px;}
+.edit_input{
+  height: 30px;
+  width: 100%;
+  border: none;
+  color: #767c8a;
+  padding: 0px 5px;
+  background: #eaf1fe;
+}
+.add_wrap_main_line{
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 13px;
+}
+.add_wrap_main_line span{
+  display: inline-block;
+}
+.course_scheduling_operate{
+  clear: both;
+  margin: 76px 0px 65px 0px;
+  text-align: center;
+}
+.course_scheduling_operate .defaltBtn{
+  display: inline-block ;
+  width: 100px;
+}
+.add_wrap_main{
+  position: relative;
+  height: auto;
+  width:100%;
+  padding: 15px 30px;
+  background: #fff;
+}
+.position_relative{
+  position: relative;
+}
 /*******没有左导航的列表页*******/
 .centerBody{
   position: absolute;
@@ -749,6 +799,38 @@
   display: inline-block;
 }
 .select_course_alert_btngroup>.btnBgBlue{margin-right:20px;}
+
+/*图标icon*/
+.teacher_base_ico{
+  width: 19px;
+  height: 17px;
+  background-position: -151px -119px;
+  margin-top: 4px;
+}
+.teacher_type_ico{
+  width: 16px;
+  height: 20px;
+  background-position: -229px -117px;
+  margin-top: 4px;
+}
+.teacher_level_ico{
+  width: 23px;
+  height: 14px;
+  background-position: -200px -120px;
+  margin-top: 7px;
+}
+.teacher_abstract_ico{
+  width: 16px;
+  height: 16px;
+  background-position: -176px -120px;
+  margin-top: 7px;
+}
+.add_circle_ico{
+  width: 26px;
+  height: 26px;
+  background-position: -10px -8px;
+}
+/*图标icon*/
 
 $main_background_color:red;
 $default_font_color:#393d46;

@@ -59,6 +59,13 @@ const handle_fun = {
       string_0 += '0'
     }
     return string_0+data
+  },
+  check_email: function(email){
+    if(/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(email)){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 

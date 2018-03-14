@@ -31,6 +31,15 @@ export default{
       this.optionIsShow = false
       this.$emit('update:selectData', l)
     }
+  },
+  mounted(){
+//    if (this.selectSource && this.selectSource.length>7){
+//      const ps = new perfectScrollbar('.selectboxCommon', {
+//        wheelSpeed: 2,
+//        wheelPropagation: true,
+//        minScrollbarLength: 20
+//      })
+//    }
   }
 }
 </script>
@@ -40,7 +49,7 @@ export default{
   .selectboxWrapper{
     position: relative;
     display: inline-block;
-    height: 30px;
+    height: 30px; width: 100%;
     .selectbox_txtbox{
       height: 100%;
       width: 100%;
@@ -71,7 +80,7 @@ export default{
       border: #eaf1fe solid 1px;
       box-shadow: 0px 0px 15px #eee;
       background: #fff;
-      overflow: hidden;
+      overflow: scroll;
       z-index: 100;
       .selectboxCommonUl{
         display: block; width: 100%;

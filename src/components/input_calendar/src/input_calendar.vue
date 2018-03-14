@@ -34,7 +34,7 @@ export default{
           this.calendar_display=value.join("-");
         }
       },
-      calendar_display:"2018-02-16"
+      calendar_display:""
     }
   },
   methods:{
@@ -85,7 +85,7 @@ export default{
     position: absolute;
     left:0;
     top:0;
-    padding:20px;
+    padding:10px 0;
     border: 1px solid #eee;
     border-radius: 2px;
     &:before {

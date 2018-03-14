@@ -15,8 +15,8 @@
             <span class="headRightIcon"></span>
             <div class="headUserLayer" v-if="menu_show">
               <p>消息</p>
-              <router-link :to="{path:'/password_change'}"><p>密码设置</p></router-link>
-              <p>退出</p>
+              <router-link tag="p" :to="{path:'/password_change'}">密码设置</router-link>
+              <router-link tag="p" :to="{path:'/login'}">退出</router-link>
             </div>
           </div>
           <router-link v-if="router_name!='/crm_view_course_list'&&router_name!='/crm_view_course_info'" class="icon_common home_icon" :to="{path:'/system_main'}"></router-link>

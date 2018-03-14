@@ -1,7 +1,7 @@
 <template>
   <div class="centerBody">
     <div class="centerBodyInputGroup">
-      <span class="defaltBtn btnLength4 btnBgGreen floatRight">新增教师</span>
+      <router-link tag="span" :to="{path:'/addTeacherInfo'}" class="defaltBtn btnLength4 btnBgGreen floatRight">新增教师</router-link>
       <span class="defaltBtn btnLength4 btnBorderGreen floatRight" style="position: relative;margin-right: 10px;">
 			  导入
 			<input class="upload_file_input" type="file" name="teacherFile" id="uploadTeacherBtn">
@@ -30,8 +30,8 @@
               <span v-for="n in l.person.contactInfos" v-if="n.contactInfoType==0">{{n.contactInfo}}</span>
             </div>
             <div class="course_sceduling_list_starttime">{{l.person.nationality | id_name_filter(country_list)}}</div>
-            <div class="course_sceduling_list_endtime">{{l.person.idDocs[0].identificationTypeId | id_name_filter(id_type_list)}}</div>
-            <div style="width: 20%;">{{l.person.idDocs[0].idNumber}}</div>
+            <div class="course_sceduling_list_endtime" v-if="l.person.idDocs.length">{{l.person.idDocs[0].identificationTypeId | id_name_filter(id_type_list)}}</div>
+            <div style="width: 20%;">{{l.person.idDocs.length?l.person.idDocs[0].idNumber:''}}</div>
           </div>
         </div>
       </div>
@@ -80,9 +80,9 @@ export default{
   },
   created(){
     http.get_area_list({parentId:-1}).then(res1 => {
-      this.country_list = res1;
+      this.country_list = res1
       http.get_teahcer_info_list({"orgId":localStorage.orgId,"type":0, pageSize:this.pageSize, pageNum:1, arguments:this.searchKey}).then(res2 => {
-        this.teahcer_info_list=res2.results;
+        this.teahcer_info_list=res2.results
         this.$set(this.temp_data, 'numPages', res2.pageNum)
       })
     })

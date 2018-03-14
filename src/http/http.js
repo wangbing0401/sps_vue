@@ -75,7 +75,10 @@ const http = {
   get_all_kemu_list:(data) => instance.get('/api/v1/accountingItem/listAll', {params:data}),
   add_kemu_guanxi:(data) => instance.post('/api/v1/product/putSubjectRelationControl', data),
   delete_kemu_guanxi_list:(data) => instance.get('/api/v1/product/deleteSubjectRelationControl', {params:data}),
-
+  get_area_list:(data) => instance.get('/area/api/v1/area', {params:data, dic:true}),
+  get_ethnic_list:(data) => instance.get('/common/api/v1/common/ethnicGroup', {params:data, dic:true}),
+  get_teahcer_by_email:(data) => instance.get('/api/v1/teacher/ByEmail', {params:data}),
+  add_teahcer_info:(data) => instance.post('/api/v1/teacher/addParent', data)
 }
 
 export default http
